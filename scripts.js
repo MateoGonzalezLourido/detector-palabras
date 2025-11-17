@@ -1,10 +1,15 @@
 let palabras = ['hola', 'casa', 'mañana', 'dia', 'tarde', 'sol', 'coche', 'sopa']
+let numero_total_letras_sopa=850
+
+const $n_letras=document.querySelector("#cantidad-letras-sopa")
+$n_letras.addEventListener("change",()=>{numero_total_letras_sopa=Number($n_letras.value)})
+
 
 function crear_grupo_caracteres() {
     let texto_crear = ""
     const letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     const numero_letras = letras.length - 1
-    for (let i = 0; i < 850; i++) {
+    for (let i = 0; i < numero_total_letras_sopa; i++) {
         texto_crear += ' ' + letras[Math.floor(Math.random() * numero_letras)]
     }
     return texto_crear
@@ -77,15 +82,16 @@ function ver_palabras() {
                 codigo += ", "
             }
         }
-        document.getElementById('palabras-buscar').style.display = "block"
-        document.getElementById('palabras-buscar').innerHTML = codigo
-        document.getElementById('bt-ver-palabras').value = "Esconder Palabras"
+        document.querySelector('#palabras-buscar').style.display = "block"
+        document.querySelector('#palabras-buscar').innerHTML = codigo
+        document.querySelector('#bt-ver-palabras').value = "Esconder Palabras"
+        document.querySelector('#palabras-añadir').style.display = "none"
     }
     else {
-        document.getElementById('palabras-buscar').style.display = "none"
-        document.getElementById('palabras-buscar').innerHTML = ""
-        document.getElementById('palabras-añadir').style.display = "block"
-        document.getElementById('bt-ver-palabras').value = "Ver Palabras"
+        document.querySelector('#palabras-buscar').style.display = "none"
+        document.querySelector('#palabras-buscar').innerHTML = ""
+        document.querySelector('#palabras-añadir').style.display = "block"
+        document.querySelector('#bt-ver-palabras').value = "Ver Palabras"
     }
     ver_palabras_permitido = !ver_palabras_permitido
 }

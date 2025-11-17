@@ -24,7 +24,9 @@ body {
     font-weight: 600;
     background-color: #f1f1f1;
 }
-
+#bt-ver-palabras{
+background-color: #f6b0cd;
+}
 .posicionar-palabras-encontradas {
     position: relative;
     min-width: calc(60% - 44px);
